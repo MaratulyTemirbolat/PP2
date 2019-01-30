@@ -1,0 +1,7 @@
+E:\KBTU\С#\University\Task4\Task4\bin\Debug\Task4.exe.config
+E:\KBTU\С#\University\Task4\Task4\bin\Debug\Task4.exe
+E:\KBTU\С#\University\Task4\Task4\bin\Debug\Task4.pdb
+E:\KBTU\С#\University\Task4\Task4\obj\Debug\Task4.csprojAssemblyReference.cache
+E:\KBTU\С#\University\Task4\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
+E:\KBTU\С#\University\Task4\Task4\obj\Debug\Task4.exe
+E:\KBTU\С#\University\Task4\Task4\obj\Debug\Task4.pdb
