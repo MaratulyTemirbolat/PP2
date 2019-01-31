@@ -10,16 +10,19 @@ namespace Task4
 	{
 		static void Main(string[] args)
 		{
-			int n = int.Parse(Console.ReadLine()); //Ask to write the number of elements in array
-			for(int k = 0; k < n; k++)
+			int n = int.Parse(Console.ReadLine()); // Created the variable n and ask user write it
+			for (int k = 0; k < n; k++)
 			{
-				for(int j = 0; j <= k; j++)
+				for(int j = 0; j < n; j++)
 				{
-					Console.Write("[*]"); //Draw a StarTriangle using cycle
+					if (k >= j) // Condition which works if k more or equal j
+					{
+						Console.Write("[*]"); // Show the [*]
+					}
 				}
 				Console.Write("\n"); // use to begin the drow from the new line
 			}
-			Console.ReadKey();// ise to show the result until the window did not close
+			Console.ReadKey();// use to show the result until the window did not close
 		}
 	}
 }

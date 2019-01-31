@@ -11,7 +11,8 @@ namespace Task3
 		static void Main(string[] args)
 		{
 			int n = int.Parse(Console.ReadLine());// Write the number of elements in array
-			int[] array = new int[n]; // Create the Array with n number
+		
+			int[] array = new int[n*2]; // Create the Array with n number
 			for(int k = 0; k < n; k++)
 			{
 				array[k] = int.Parse(Console.ReadLine()); //Fill the Array whith elements
