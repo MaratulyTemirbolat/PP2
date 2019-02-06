@@ -10,7 +10,7 @@ namespace Task01
 	{
 		static bool IsPrime(int number) // Created bool function which will return true or false
 		{
-			if (number == 1) // if the number equal 1 The function will return false
+			if (number == 1 || number ==0) // if the number equal 1 or 0 The function will return false
 				return false;
 			for(int k = 2; k < number; k++) // Cycle from 2 to number
 			{
