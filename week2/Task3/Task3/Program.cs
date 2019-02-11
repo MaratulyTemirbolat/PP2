@@ -34,7 +34,7 @@ namespace Task3
 		
 		static void Main(string[] args)
 		{
-			DirectoryInfo dir = new DirectoryInfo("C:/Users/ww/Desktop/Other Things"); // Write the path to the directory With which we works
+			DirectoryInfo dir = new DirectoryInfo("C:/Users/ww/Desktop/КБТУ"); // Write the path to the directory With which we works
 			Console.WriteLine(dir.Name); // Show the name Of our folder
 			UsingDirc(dir, 0);//Call the function with dir and 0(the number of spaces)
 			Console.ReadKey();
