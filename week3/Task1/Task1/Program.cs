@@ -139,9 +139,7 @@ namespace Task1
 					}
 					else
 					{
-						
 						File.Move(f1.FullName, copPath);
-						
 					}
 				}
 			}
