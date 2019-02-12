@@ -13,7 +13,7 @@ namespace Task1
 		public int cursor;
 		public string path;
 		public int size;
-		FileSystemInfo f1 = null;
+	    FileSystemInfo f1 = null;
 		public FarManager()
 		{
 
@@ -27,8 +27,12 @@ namespace Task1
 		{
 			if (cursor == index)
 			{
-				Console.BackgroundColor = ConsoleColor.Cyan;
-				Console.ForegroundColor = ConsoleColor.Black;
+				/*if (cursor == size-1)
+					Console.BackgroundColor = ConsoleColor.Black;	
+				else
+					Console.BackgroundColor = ConsoleColor.Green;
+					*/
+				Console.ForegroundColor = ConsoleColor.White;
 				f1 = f;
 			}
 			else if (f.GetType() == typeof(DirectoryInfo))
@@ -44,9 +48,11 @@ namespace Task1
 		}
 		public void Show()
 		{
+			
 			 dir = new DirectoryInfo(path);
 			FileSystemInfo[] FSI = dir.GetFileSystemInfos();
-			for(int k = 0,j=0; k < FSI.Length; k++)
+			Console.BackgroundColor = ConsoleColor.Black;
+			for (int k = 0,j=0; k < FSI.Length; k++)
 			{
 				if (FSI[k].Name[0] == '.')
 					continue;
@@ -116,6 +122,21 @@ namespace Task1
 
 					}
 				}
+				else if(Cons.Key == ConsoleKey.Tab)
+				{
+					if (dir.Parent.FullName != @"C:\")
+					{
+						path = dir.Parent.FullName;
+						cursor = 0;
+						Console.Clear();
+					}
+					else
+					{
+						Console.WriteLine("You Can't go out from the disk");
+						Console.ReadKey();
+						Console.Clear();
+					}
+				}
 				else if (Cons.Key == ConsoleKey.Backspace)
 				{
 					if (f1.GetType() == typeof(DirectoryInfo))
@@ -153,8 +174,7 @@ namespace Task1
 		{
 			string path = @"C:\Users\ww\Downloads";
 			FarManager FM = new FarManager(path);
-			FM.Start();
-			
+			FM.Start();		
 		}
 	}
 }
