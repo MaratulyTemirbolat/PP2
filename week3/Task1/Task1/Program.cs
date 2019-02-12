@@ -27,16 +27,18 @@ namespace Task1
 		{
 			if (cursor == index)
 			{
-				
-				Console.ForegroundColor = ConsoleColor.White;
+				Console.BackgroundColor = ConsoleColor.Cyan;
+				Console.ForegroundColor = ConsoleColor.Black;
 				f1 = f;
 			}
 			else if (f.GetType() == typeof(DirectoryInfo))
 			{
+				Console.BackgroundColor = ConsoleColor.Black;
 				Console.ForegroundColor = ConsoleColor.Blue;
 			}
 			else
 			{
+				Console.BackgroundColor = ConsoleColor.Black;
 				Console.ForegroundColor = ConsoleColor.Red;
 			}
 		}
@@ -49,7 +51,7 @@ namespace Task1
 				if (FSI[k].Name[0] == '.')
 					continue;
 				Color(FSI[k],j);
-				Console.WriteLine(FSI[k].Name);
+				Console.WriteLine(j+1 +". " + FSI[k].Name);
 				j++;
 			}
 			
@@ -149,7 +151,7 @@ namespace Task1
 	{
 		static void Main(string[] args)
 		{
-			string path = @"C:\Users\ww\Desktop";
+			string path = @"C:\Users\ww\Downloads";
 			FarManager FM = new FarManager(path);
 			FM.Start();
 			
