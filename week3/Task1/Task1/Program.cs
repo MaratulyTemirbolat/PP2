@@ -13,7 +13,7 @@ namespace Task1
 		public int cursor;
 		public string path;
 		public int size;
-	    FileSystemInfo f1 = null;
+		FileSystemInfo f1 = null;
 		public FarManager()
 		{
 
@@ -23,53 +23,50 @@ namespace Task1
 			this.path = path;
 			cursor = 0;
 		}
-		public void Color(FileSystemInfo f,int index)
+		public void Color(FileSystemInfo f, int index)
 		{
 			if (cursor == index)
 			{
-				//if (cursor == size-1)
-					//Console.BackgroundColor = ConsoleColor.Black;	
-				//else
-					Console.BackgroundColor = ConsoleColor.Green;
-					
-				Console.ForegroundColor = ConsoleColor.White;
+				Console.BackgroundColor = ConsoleColor.Cyan;
+				Console.ForegroundColor = ConsoleColor.Black;
 				f1 = f;
 			}
 			else if (f.GetType() == typeof(DirectoryInfo))
 			{
-				Console.BackgroundColor = ConsoleColor.Black;
+				Console.BackgroundColor = ConsoleColor.White;
 				Console.ForegroundColor = ConsoleColor.Blue;
 			}
 			else
 			{
-				Console.BackgroundColor = ConsoleColor.Black;
+				Console.BackgroundColor = ConsoleColor.White;
 				Console.ForegroundColor = ConsoleColor.Red;
 			}
 		}
 		public void Show()
 		{
-			
-			 dir = new DirectoryInfo(path);
+
+			dir = new DirectoryInfo(path);
 			FileSystemInfo[] FSI = dir.GetFileSystemInfos();
-			Console.BackgroundColor = ConsoleColor.Black;
-			for (int k = 0,j=0; k < FSI.Length; k++)
+			Console.BackgroundColor = ConsoleColor.White;
+			Console.Clear();
+			for (int k = 0, j = 0; k < FSI.Length; k++)
 			{
 				if (FSI[k].Name[0] == '.')
 					continue;
-				Color(FSI[k],j);
-				Console.WriteLine(j+1 +". " + FSI[k].Name);
+				Color(FSI[k], j);
+				Console.WriteLine(j + 1 + ". " + FSI[k].Name);
 				j++;
 			}
-			
+
 		}
 		public void CalSize()
 		{
 			DirectoryInfo d = new DirectoryInfo(path);
 			FileSystemInfo[] fi = d.GetFileSystemInfos();
 			size = fi.Length;
-			for(int k = 0; k < fi.Length; k++)
+			for (int k = 0; k < fi.Length; k++)
 			{
-				if(fi[k].Name[0]=='.')
+				if (fi[k].Name[0] == '.')
 					size--;
 			}
 		}
@@ -87,14 +84,14 @@ namespace Task1
 		}
 		public void Start()
 		{
-			
-			ConsoleKeyInfo Cons = Console.ReadKey();
 
-			while (Cons.Key != ConsoleKey.Spacebar)
+			ConsoleKeyInfo Cons;
+
+			while (true)
 			{
 				CalSize();
 				Show();
-				Cons = Console.ReadKey();				
+				Cons = Console.ReadKey();
 				Console.Clear();
 				if (Cons.Key == ConsoleKey.DownArrow)
 				{
@@ -114,7 +111,6 @@ namespace Task1
 					else
 					{
 						StreamReader SR = new StreamReader(f1.FullName);
-
 						Console.WriteLine(SR.ReadToEnd());
 						SR.Close();
 						Console.ReadKey();
@@ -122,9 +118,9 @@ namespace Task1
 
 					}
 				}
-				else if(Cons.Key == ConsoleKey.Tab)
+				else if (Cons.Key == ConsoleKey.Tab)
 				{
-					if (dir.Parent.FullName != @"C:\" || dir.Parent.FullName != @"E:\")
+					if (dir.Parent.FullName != @"C:\")
 					{
 						path = dir.Parent.FullName;
 						cursor = 0;
@@ -150,7 +146,7 @@ namespace Task1
 						File.Delete(f1.FullName);
 					}
 				}
-				else if(Cons.Key == ConsoleKey.Escape)
+				else if (Cons.Key == ConsoleKey.Escape)
 				{
 					Console.Clear();
 					string name = Console.ReadLine();
@@ -158,7 +154,7 @@ namespace Task1
 					string copPath = Path.Combine(dir.FullName, name);
 					if (f1.GetType() == typeof(DirectoryInfo))
 					{
-						Directory.Move(f1.FullName,copPath);
+						Directory.Move(f1.FullName, copPath);
 					}
 					else
 					{
@@ -174,7 +170,7 @@ namespace Task1
 		{
 			string path = @"C:\Users\ww\Downloads";
 			FarManager FM = new FarManager(path);
-			FM.Start();		
+			FM.Start();
 		}
 	}
 }
