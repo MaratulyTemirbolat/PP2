@@ -86,16 +86,21 @@ namespace Task1
 		{
 
 			ConsoleKeyInfo Cons;
-
-			while (true)
+			bool Ok = true;
+			while (Ok==true)
 			{
 				CalSize();
 				Show();
 				Cons = Console.ReadKey();
 				Console.Clear();
+
 				if (Cons.Key == ConsoleKey.DownArrow)
 				{
 					Down();
+				}
+				else if (Cons.Key == ConsoleKey.Spacebar)
+				{
+					Ok = false;
 				}
 				else if (Cons.Key == ConsoleKey.UpArrow)
 				{
@@ -118,7 +123,7 @@ namespace Task1
 
 					}
 				}
-				else if (Cons.Key == ConsoleKey.Tab)
+				else if (Cons.Key == ConsoleKey.Escape)
 				{
 					if (dir.Parent.FullName != @"C:\")
 					{
@@ -146,7 +151,7 @@ namespace Task1
 						File.Delete(f1.FullName);
 					}
 				}
-				else if (Cons.Key == ConsoleKey.Escape)
+				else if (Cons.Key == ConsoleKey.Tab)
 				{
 					Console.Clear();
 					string name = Console.ReadLine();
