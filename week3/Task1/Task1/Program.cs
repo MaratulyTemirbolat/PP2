@@ -27,11 +27,11 @@ namespace Task1
 		{
 			if (cursor == index)
 			{
-				/*if (cursor == size-1)
-					Console.BackgroundColor = ConsoleColor.Black;	
-				else
+				//if (cursor == size-1)
+					//Console.BackgroundColor = ConsoleColor.Black;	
+				//else
 					Console.BackgroundColor = ConsoleColor.Green;
-					*/
+					
 				Console.ForegroundColor = ConsoleColor.White;
 				f1 = f;
 			}
@@ -89,8 +89,8 @@ namespace Task1
 		{
 			
 			ConsoleKeyInfo Cons = Console.ReadKey();
-			
-			while (true)
+
+			while (Cons.Key != ConsoleKey.Spacebar)
 			{
 				CalSize();
 				Show();
@@ -124,7 +124,7 @@ namespace Task1
 				}
 				else if(Cons.Key == ConsoleKey.Tab)
 				{
-					if (dir.Parent.FullName != @"C:\")
+					if (dir.Parent.FullName != @"C:\" || dir.Parent.FullName != @"E:\")
 					{
 						path = dir.Parent.FullName;
 						cursor = 0;

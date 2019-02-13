@@ -28,7 +28,7 @@ namespace Task3
 				{
 					ShowSpace(level+1); // Call the function "ShowSpaces" with level + 1 To Separate by space out folders
 					Console.WriteLine(direct.Name); // Show the name of the Folders
-				UsingDirc(direct, level + 2); // Recuria(Recall the ofigin function with another directory and level)
+				UsingDirc(direct, level + 2); // Recursia(Recall the ofigin function with another directory and level)
 				}
 		}
 		
