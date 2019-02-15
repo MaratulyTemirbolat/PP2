@@ -11,8 +11,8 @@ namespace Task3
 		static int[] SecArr(int[] arr) // Method that makes out of an array of integers another array of integers,where every element is repeated
 		{
 			int[] array = new int[arr.Length * 2]; // array with length of array which is sent
-			int cnt = -1; 
-			for(int i = 0; i < arr.Length; i++) // cycle in which every element in array take value from the array which is sent twice
+			
+			for(int i = 0, cnt =-1; i < arr.Length; i++) // cycle in which every element in array take value from the array which is sent twice
 			{
 				cnt++;
 				array[cnt] = arr[i];

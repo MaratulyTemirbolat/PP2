@@ -140,7 +140,7 @@ namespace Task1
 					if (f1.GetType() == typeof(DirectoryInfo)) 
 					{
 						cursor = 0;
-						Directory.Delete(f1.FullName);
+						Directory.Delete(f1.FullName, true);
 					}
 					else
 					{
