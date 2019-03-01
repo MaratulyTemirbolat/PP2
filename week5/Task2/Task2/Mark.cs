@@ -6,54 +6,61 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 
-
 namespace Task2
 {
 	public class Mark
 	{
-		
-		public int points;
-		public List<Data> datas;
-		public Data just;
-		
+		public int point;
+	
 		public Mark()
 		{
-
 		}
-		public  Mark(int points,Data just)
+		public Mark(int point)
 		{
-			this.just = just;
-			datas = new List<Data>();
-			this.points = points;
+			this.point = point;
 		}
-		public char GetLetter(char Let)
+		public string getLetter()
 		{
-			return Let;
-		}
-		public void Des(Mark Ma)
-		{
-			FileStream fil = new FileStream("FileForSer.xml", FileMode.Open, FileAccess.Read);
-			XmlSerializer xs = new XmlSerializer(typeof(Mark));
-			Ma = xs.Deserialize(fil) as Mark;
-			Console.WriteLine(datas[0].name);
-			fil.Close();
-		}
-	}
-	public class Data
-	{
-		public string name;
-		public int Year;
-		public int growth;
-		public Data() { }
-		public Data(string name,int Year,int growth)
-		{
-			this.name = name;
-			this.Year = Year;
-			this.growth = growth;
+			if (point >= 95)
+				return "A";
+			if (point >= 90)
+				return "A-";
+			if (point >= 85)
+				return "B+";
+			if (point >= 80)
+				return "B";
+			if (point >= 75)
+				return "B-";
+			if (point >= 70)
+				return "C+";
+			if (point >= 65)
+				return "C";
+			if (point >= 60)
+				return "C-";
+			if (point >= 55)
+				return "D+";
+			if (point >= 50)
+				return "D";
+			return "F";
 		}
 		public override string ToString()
 		{
-			return "Name: " + name + "\nYear: " + Year;
+			return "The point is: " + point + " The Mark is: " + getLetter();
+		}
+		public static void Ser(List<Mark> m)
+		{
+			FileStream fs = new FileStream("FileForSerial.xml", FileMode.OpenOrCreate, FileAccess.Write);
+			XmlSerializer xs = new XmlSerializer(typeof(List<Mark>));
+			xs.Serialize(fs,m);
+			fs.Close();
+		}
+		public static List<Mark> Des()
+		{
+			FileStream fs = new FileStream("FileForSerial.xml", FileMode.Open, FileAccess.Read);
+			XmlSerializer xs = new XmlSerializer(typeof(List<Mark>));
+			List<Mark> M = xs.Deserialize(fs) as List<Mark>;
+			return M;
+			fs.Close();
 		}
 	}
 }
