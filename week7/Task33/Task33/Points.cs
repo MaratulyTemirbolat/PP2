@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnakeInThreads
+namespace Task33
 {
-	public class Points
+	class Points
 	{
 		public int x;
 		public int y;
@@ -14,7 +14,7 @@ namespace SnakeInThreads
 		{
 
 		}
-		public Points(int x,int y)
+		public Points(int x, int y)
 		{
 			this.x = x;
 			this.y = y;

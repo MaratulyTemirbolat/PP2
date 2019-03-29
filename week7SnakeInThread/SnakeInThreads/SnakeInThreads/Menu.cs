@@ -16,7 +16,10 @@ namespace SnakeInThreads
 		public Game game;
 		public Menu()
 		{
-			
+		}
+		public Menu(string nameOfperson)
+		{
+			nameOfThePlayer = nameOfperson;
 		}
 		public void Color(int index,string n)
 		{
@@ -67,10 +70,7 @@ namespace SnakeInThreads
 			if (cursor < 0)
 				cursor = 2;
 		}
-		public void WriteTheName()
-		{
-
-		}
+		
 		public void Start()
 		{
 			ShowMenu();
@@ -88,6 +88,15 @@ namespace SnakeInThreads
 						Console.Clear();
 						game = new Game(0,nameOfThePlayer);
 						game.Start();
+					}
+					else if (Name == TheMainest[2])
+					{
+						Console.Clear();
+						Game LoadGame = game.load();
+						//LoadGame.snake.sign = 'O';
+						LoadGame.IsAlive = true;
+						LoadGame.StopGame = true;
+						LoadGame.Start();
 					}
 				}
 				ShowMenu();

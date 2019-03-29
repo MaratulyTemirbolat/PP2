@@ -18,7 +18,6 @@ namespace SnakeInThreads
 		Levels level = Levels.FIRST;
 		public Wall()
 		{
-
 		}
 		public Wall(int x, int y, char sign, ConsoleColor color) : base(x, y, sign, color)
 		{

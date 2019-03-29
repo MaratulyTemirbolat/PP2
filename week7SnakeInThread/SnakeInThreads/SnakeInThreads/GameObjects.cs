@@ -13,7 +13,6 @@ namespace SnakeInThreads
 		public ConsoleColor color;
 		public GameObjects()
 		{
-
 		}
 		public GameObjects(int x,int y,char sign,ConsoleColor color)
 		{

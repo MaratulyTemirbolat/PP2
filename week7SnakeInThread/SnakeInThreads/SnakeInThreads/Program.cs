@@ -12,10 +12,12 @@ namespace SnakeInThreads
 		{
 			Console.CursorVisible = false;
 			Console.BackgroundColor = ConsoleColor.White;
-		//	Console.Clear();
-		//	Game game = new Game(0);
-		//	game.Start();
-			Menu menu = new Menu();
+			Console.ForegroundColor = ConsoleColor.Black;
+			Console.Clear();
+			//	Game game = new Game(0);
+			//	game.Start();
+			Console.Write("Please Write your name: ");
+			Menu menu = new Menu(Console.ReadLine());
 			menu.Start();
 			
 		}

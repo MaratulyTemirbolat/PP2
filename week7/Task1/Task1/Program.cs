@@ -8,32 +8,26 @@ namespace Task1
 {
 	class Program
 	{
-	 static int j = 1;
+		
 		static void Main(string[] args)
-		{ 
+		{
 			Thread[] threads = new Thread[3];
-			Object obj = new Object();
-			 
-			for(int k = 0; k < 3; k++)
+			for(int k = 0,j=0; k < 3; k++)
 			{
-				 threads[k] = new Thread(GotTheName);
+				++j;
+				threads[k] = new Thread(CurN);
 				threads[k].Name = j.ToString();
 				threads[k].Start();
-				
-				
 			}
 			Console.ReadKey();
 		}
-		static void GotTheName()
+		static void CurN()
 		{
-			Object lockObject = new Object();
-			lock (lockObject)
+			Object obj = new object();
+			lock (obj)
 			{
 				for (int k = 0; k < 3; k++)
-				{
-					Console.WriteLine(Thread.CurrentThread.Name);
-				}
-				j++;
+					Console.Write("Thread number "+Thread.CurrentThread.Name + '\n');
 			}
 		}
 	}

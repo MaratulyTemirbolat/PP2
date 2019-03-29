@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B731939-A408-4FA1-A4CC-BE5D418EFA4F}</ProjectGuid>
+    <ProjectGuid>{9408C033-CC3E-4DE8-B6E3-DA431B3D89AD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task1</RootNamespace>
-    <AssemblyName>Task1</AssemblyName>
+    <RootNamespace>Task33</RootNamespace>
+    <AssemblyName>Task33</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Points.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Snake.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

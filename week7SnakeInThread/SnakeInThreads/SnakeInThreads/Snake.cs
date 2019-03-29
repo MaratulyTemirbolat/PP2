@@ -20,16 +20,14 @@ namespace SnakeInThreads
 		Direction direction = Direction.NONE;
 	public Snake()
 		{
-
 		}
 		public Snake(int x,int y,char sing,ConsoleColor color) : base(x, y, sing, color)
 		{
 		}
 		public void Move()
 		{
-			EndX = body[body.Count - 1].x;
-			EndY = body[body.Count - 1].y;
-			
+				EndX = body[body.Count - 1].x;
+				EndY = body[body.Count - 1].y;		
 			if (direction == Direction.NONE)
 				return;
 			for(int k = body.Count-1; k > 0; k--)
