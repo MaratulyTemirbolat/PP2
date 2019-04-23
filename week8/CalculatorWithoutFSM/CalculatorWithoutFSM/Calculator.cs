@@ -14,7 +14,8 @@ namespace CalculatorWithoutFSM
 			NONE,
 			NUMBER,
 			OPERATION,
-			EQUAL
+			EQUAL,
+			BACKSPACE
 		}
 		public string FirstNumber;
 		public string ResultNumber;
@@ -37,7 +38,7 @@ namespace CalculatorWithoutFSM
 			Button btn = sender as Button;
 			if (state != States.EQUAL && Ok)
 			{
-				if (textBox.Text != "")
+				if (textBox.Text != "" || textBox.Text =="0")
 				{
 					string NewNumber = "";
 					for (int k = 0; k < textBox.Text.Length - 1; k++)
@@ -52,7 +53,7 @@ namespace CalculatorWithoutFSM
 					textBox.Text = "0";
 				}
 
-				state = States.NUMBER;
+				state = States.BACKSPACE;
 			}
 		}
 		public void Clean_Clicked(object sender,EventArgs e)
@@ -75,6 +76,10 @@ namespace CalculatorWithoutFSM
 		{
 			Button btn = (Button)sender;
 			if(state == States.NONE)
+			{
+				textBox.Text = btn.Text;
+			}
+			if(state == States.BACKSPACE)
 			{
 				textBox.Text = btn.Text;
 			}
@@ -131,6 +136,8 @@ namespace CalculatorWithoutFSM
 				return true;
 			else if (Operation == "X!")
 				return true;
+			else if (Operation == "X^3")
+				return true;
 			return false;
 		}
 		public void Equal_Clicked(object sender,EventArgs e)
@@ -174,6 +181,14 @@ namespace CalculatorWithoutFSM
 						textBox.Text = a.ToString();
 					}
 				}
+				if (Operation == "X^3")
+					textBox.Text = (double.Parse(textBox.Text) * double.Parse(textBox.Text) * double.Parse(textBox.Text)).ToString();
+				if(Operation == "X^y")
+				{
+					double f = double.Parse(FirstNumber);
+					double s = double.Parse(ResultNumber);
+					textBox.Text = (Math.Pow(f, s)).ToString();
+				}
 			}
 			else
 			{
@@ -202,6 +217,12 @@ namespace CalculatorWithoutFSM
 						}
 						textBox.Text = a.ToString();
 					}
+				}
+				if (Operation == "X^3")
+					textBox.Text = (double.Parse(textBox.Text) * double.Parse(textBox.Text) * double.Parse(textBox.Text)).ToString();
+				if(Operation == "X^y")
+				{
+					textBox.Text = (Math.Pow(double.Parse(textBox.Text), double.Parse(ResultNumber))).ToString();
 				}
 			}
 			Ok = false;

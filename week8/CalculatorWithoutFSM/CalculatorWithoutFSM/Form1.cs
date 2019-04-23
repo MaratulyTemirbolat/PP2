@@ -26,7 +26,7 @@ namespace CalculatorWithoutFSM
 			int dis = 2;
 			int index = 0;
 			int NewHeight = 3;
-			for(int k = 0; k < 6; k++)
+			for(int k = 0; k < 7; k++)
 			{
 				for(int j = 0; j < 4; j++)
 				{
@@ -121,6 +121,10 @@ namespace CalculatorWithoutFSM
 			else if(index == 23)
 			{
 				return "X^y";
+			}
+			else if(index == 24)
+			{
+				return "X^3";
 			}
 			return index.ToString();
 		}
