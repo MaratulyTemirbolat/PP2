@@ -30,7 +30,6 @@ namespace SaturdayQuiz3Task2BallsFallsDanara
 		{
 			pArray = new Point[1000];
 			pen = new Pen(Color.Blue);
-
 			IsClicked = false;
 		}
 
