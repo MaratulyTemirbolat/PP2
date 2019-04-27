@@ -82,8 +82,9 @@ namespace JUSTROMB
 			else
 			{
 				R = 10;
-				IsClicked = false;
 				timer1.Stop();
+				IsClicked = false;
+				
 			}
 		}
 

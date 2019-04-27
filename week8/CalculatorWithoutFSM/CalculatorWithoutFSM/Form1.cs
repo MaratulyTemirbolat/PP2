@@ -126,6 +126,19 @@ namespace CalculatorWithoutFSM
 			{
 				return "X^3";
 			}
+			else if(index == 25)
+			{
+				return "CSqr";
+			}
+			else if(index == 26)
+			{
+				return "Sin(X)";
+			}
+			else if(index == 27)
+			{
+				return "Log(X)";
+			}
+			
 			return index.ToString();
 		}
 	}

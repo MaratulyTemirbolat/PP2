@@ -14,7 +14,7 @@ namespace Task1GCD
 	{
 		string FirstNumber;
 		string SecondNumber;
-		
+		string Operation = "";
 		public Form1()
 		{
 			InitializeComponent();
@@ -55,6 +55,43 @@ namespace Task1GCD
 			}
 			textBox1.Text = GCDNUmb;
 			
+		}
+		Random random = new Random();
+		int RandOp;
+		public void Oper_Clicked(object sender,EventArgs e)
+		{
+			RandOp = random.Next(1, 5);
+			FirstNumber = textBox1.Text;
+			textBox1.Text = "";
+			if(RandOp == 1)
+			{
+				Operation = "+";
+			}
+			if(RandOp == 2)
+			{
+				Operation = "-";
+			}
+			if(RandOp == 3)
+			{
+				Operation = "*";
+			}
+			if(RandOp == 4)
+			{
+				Operation = "/";
+			}
+			
+		}
+		public void Res_Clicked(object sender,EventArgs e)
+		{
+			SecondNumber = textBox1.Text;
+			if (Operation == "+")
+				textBox1.Text = (int.Parse(FirstNumber) + int.Parse(textBox1.Text)).ToString();
+			if(Operation == "-")
+				textBox1.Text = (int.Parse(FirstNumber) - int.Parse(textBox1.Text)).ToString();
+			if(Operation =="*")
+				textBox1.Text= (int.Parse(FirstNumber) * int.Parse(textBox1.Text)).ToString();
+			if(Operation == "/")
+				textBox1.Text= (int.Parse(FirstNumber) / int.Parse(textBox1.Text)).ToString();
 		}
 	}
 }

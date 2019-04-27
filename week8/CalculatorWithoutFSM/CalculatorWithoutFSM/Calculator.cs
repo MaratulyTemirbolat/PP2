@@ -138,6 +138,12 @@ namespace CalculatorWithoutFSM
 				return true;
 			else if (Operation == "X^3")
 				return true;
+			else if (Operation == "CSqr")
+				return true;
+			else if (Operation == "Ln(X)")
+				return true;
+			else if (Operation == "Log(X)")
+				return true;
 			return false;
 		}
 		public void Equal_Clicked(object sender,EventArgs e)
@@ -181,6 +187,13 @@ namespace CalculatorWithoutFSM
 						textBox.Text = a.ToString();
 					}
 				}
+				if (Operation == "Log(X)")
+					textBox.Text = (Math.Log10(double.Parse(textBox.Text))).ToString();
+				if(Operation == "CSqr")
+				{
+					
+					textBox.Text = (Math.Pow(double.Parse(textBox.Text),(double)1.0/3.0)).ToString();
+				}
 				if (Operation == "X^3")
 					textBox.Text = (double.Parse(textBox.Text) * double.Parse(textBox.Text) * double.Parse(textBox.Text)).ToString();
 				if(Operation == "X^y")
@@ -217,6 +230,12 @@ namespace CalculatorWithoutFSM
 						}
 						textBox.Text = a.ToString();
 					}
+				}
+				if (Operation == "Log(X)")
+					textBox.Text = (Math.Log10(double.Parse(textBox.Text))).ToString();
+				if (Operation == "CSqr")
+				{	
+					textBox.Text = (Math.Pow(double.Parse(textBox.Text),(double)1.0/3.0)).ToString();
 				}
 				if (Operation == "X^3")
 					textBox.Text = (double.Parse(textBox.Text) * double.Parse(textBox.Text) * double.Parse(textBox.Text)).ToString();
